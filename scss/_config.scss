@@ -1,76 +1,69 @@
-$primary-color: rgb(18, 39, 34);
-$secondary-color: #0f82a5;
-$show-home-image: true;
-$home-image: url(../dist/img/backgroundsmall.png);
-$background-opacity: 0.8;
-@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+// ============================================
+// DESIGN TOKENS — "Product Designer Portfolio"
+// reference: Jayesh Patil / JCREA (Figma Community)
+// ============================================
 
+// Palette
+$ink:        #101828; // headings on light
+$slate:      #344054; // body on light
+$muted:      #667085; // captions
+$faint:      #98a2b3; // supporting text on dark
+$orange:     #14b8a6; // primary brand
+$orange-2:   #2dd4bf; // brand gradient end
+$orange-3:   #0d9488; // brand bar
+$cream:      #f6f6f4; // page background
+$paper:      #ffffff;
+$offwhite:   #fcfcfd;
+
+$dark:       #171717;   // dark panels
+$dark-2:     #212121;   // cards inside dark panels
+$dark-3:     #2a2a2a;   // hover
+$footer:     #272727;   // footer panel
+$chip:       #f2f4f7;   // tech chip on light
+$chip-ink:   #101828;
+$line:       #e4e7ec;
+$success:    #27ae60;
+
+// Typography (Lufga -> Plus Jakarta Sans, script = Vast Shadow, UI = Inter)
+$font-display: "Plus Jakarta Sans", "Segoe UI", Tahoma, sans-serif;
+$font-script:  "Vast Shadow", Georgia, serif;
+$font-ui:      "Inter", "Segoe UI", Tahoma, sans-serif;
+
+// Radii
+$radius-pill: 999px;
+$radius-card: 24px;
+$radius-panel: 48px;
+$radius-chip: 200px;
+
+// Spacing
+$gutter: clamp(1.25rem, 4vw, 3rem);
+
+// Mixins
 @mixin easeOut {
-    transition: all 0.5s ease-out;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@mixin background {
-    @if $show-home-image {
-        #bg-img {
-            background: $home-image;
-            background-attachment: fixed;
-            background-size: cover;
-            min-height: 700px;
-            height: 100vh;
-            position: relative;
-            z-index: -1;
-
-            &::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                z-index: -1; // to not overlay the home
-                right: 0;
-                width: 100%;
-                height: 100%;
-                min-height: 700px;
-                background: rgba($primary-color, $background-opacity);
-            }
-        }
-    }
+@mixin container {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: $gutter;
 }
 
-// Set text color
-@function set-text-color($color) {
-    @if (lightness($color) > 40) {
-        @return rgb(9, 29, 36);
-    } @else {
-        @return #fff;
-    }
-}
-
-//Media Query Mixins
-@mixin mediaSSm {
-    @media screen and (max-width: 350px) {
-        @content;
-    }
+@mixin panel-dark {
+  background: $dark;
+  color: $offwhite;
+  border-radius: $radius-panel;
 }
 
 @mixin mediaSm {
-    @media screen and (max-width: 500px) {
-        @content;
-    }
+  @media screen and (max-width: 520px) { @content; }
 }
 
 @mixin mediaMd {
-    @media screen and (max-width: 768px) {
-        @content;
-    }
+  @media screen and (max-width: 768px) { @content; }
 }
 
 @mixin mediaLg {
-    @media screen and (max-width: 769px) and (max-width: 1170px) {
-        @content;
-    }
-}
-
-@mixin mediaXL {
-    @media screen and (min-width: 1171px) {
-        @content;
-    }
+  @media screen and (max-width: 960px) { @content; }
 }

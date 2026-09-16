@@ -1,18 +1,23 @@
-{
+﻿{
   "name": "portafolio",
   "version": "1.0.0",
   "description": "Mi portafolio personal de proyectos webs",
   "main": "js/index.js",
-  "homepage": "https://kevinj0.github.io/Portafolio",
+  "homepage": "https://kevinj0.github.io/portafolio/",
   "scripts": {
-    "sass": "node-sass --watch scss/ -o dist/css/ --recursive",
+    "sass": "sass scss/master.scss dist/css/master.css",
+    "sass:watch": "sass --watch scss/master.scss dist/css/master.css",
+    "copy:js": "robocopy js dist\\js /njh /njs /ndl /np",
+    "build": "npm run sass && npm run copy:js",
     "deploy": "gh-pages -d dist"
   },
   "author": "Kevin J. Rosario",
   "license": "ISC",
   "dependencies": {
-    "gh-pages": "^2.0.1",
+    "gh-pages": "^2.2.0"
+  },
+  "devDependencies": {
     "jquery": "^3.3.1",
-    "node-sass": "^4.11.0"
+    "sass": "^1.77.0"
   }
 }
