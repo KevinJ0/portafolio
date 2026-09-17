@@ -1144,6 +1144,35 @@ h1, h2, h3, h4 {
   line-height: 1.5;
   flex: 1;
 }
+.cert-grid .cert-card .cert-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  flex: 1;
+}
+.cert-grid .cert-card .cert-items li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+.cert-grid .cert-card .cert-items li a {
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.35;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cert-grid .cert-card .cert-items li a:hover {
+  color: #14b8a6;
+}
+.cert-grid .cert-card .cert-items li .cert-item-year {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
 .cert-grid .cert-card .cert-link {
   display: inline-flex;
   align-items: center;
