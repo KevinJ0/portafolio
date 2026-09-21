@@ -1,0 +1,26 @@
+# Archivos y carpetas que NO se suben como assets del sitio
+# (mismo formato que .gitignore)
+
+# Dependencias de build (el error de 127 MiB era node_modules/workerd)
+node_modules/
+
+# Fuente de estilos y scripts (el sitio sirve dist/ compilado)
+scss/
+js/
+
+# Archivos de documentación / proyecto
+*.md
+PRODUCT.md
+GITHUB_PAGES_FIX.md
+GITHUB_PAGES_SOLUTION.md
+
+# Configuración de package y herramientas
+package.json
+package-lock.json
+resize_images.py
+wrangler.toml
+
+# Directorios ocultos de herramientas
+.impeccable/
+.serena/
+.assetsignore
