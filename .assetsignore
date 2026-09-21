@@ -1,26 +1,24 @@
-# Archivos y carpetas que NO se suben como assets del sitio
-# (mismo formato que .gitignore)
+# Files and folders NOT uploaded as site assets (same format as .gitignore)
+# NOTE: leading slash anchors to repo root; unanchored patterns match at any depth.
 
-# Dependencias de build (el error de 127 MiB era node_modules/workerd)
-node_modules/
+# Git internals (the pack file can exceed the 25 MiB per-file asset limit)
+/.git/
+/.wrangler/
 
-# Fuente de estilos y scripts (el sitio sirve dist/ compilado)
-scss/
-js/
+# Build dependencies (node_modules/workerd is 127 MiB in the Cloudflare build)
+/node_modules/
 
-# Archivos de documentación / proyecto
+# Source of styles and scripts (the site serves the compiled dist/ copies)
+/js/
+/scss/
+
+# Project docs and config files
 *.md
-PRODUCT.md
-GITHUB_PAGES_FIX.md
-GITHUB_PAGES_SOLUTION.md
+/package.json
+/package-lock.json
+/resize_images.py
+/wrangler.toml
 
-# Configuración de package y herramientas
-package.json
-package-lock.json
-resize_images.py
-wrangler.toml
-
-# Directorios ocultos de herramientas
-.impeccable/
-.serena/
-.assetsignore
+# Hidden tooling directories
+/.impeccable/
+/.serena/
