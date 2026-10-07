@@ -1012,6 +1012,41 @@ h1, h2, h3, h4 {
   }
 }
 
+// ============================================
+// SLIDE VIDEO EMBEDS (inline YouTube iframes)
+// ============================================
+// Deliberately NOT the .slide-video-grid convention above: that renders
+// .video-card links that navigate out. This renders playable embeds.
+.portfolio .slide-videos {
+  position: relative;
+  min-height: 460px;
+  background: $dark;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  box-sizing: border-box;
+}
+
+.slide-video {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 680px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: $radius-card;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+}
+
 // badge (chip on card)
 .project-badge {
   align-self: flex-start;
@@ -1684,7 +1719,10 @@ body.viewer-open .wa-float {
   .slide-media,
   .slide-image,
   .image-carousel,
-  .portfolio .slide-video-grid { min-height: 380px; }
+  .portfolio .slide-video-grid,
+  .portfolio .slide-videos { min-height: 380px; }
+
+  // .slide-video is width-driven (width: 100% + aspect-ratio), so no height override here.
 
   .timeline::before { left: 0.6rem; }
   .timeline-dot { left: 0.6rem; }
